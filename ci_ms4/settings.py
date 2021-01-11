@@ -102,7 +102,7 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True  # Just in case of typos
 ACCOUNT_USERNAME_MIN_LENGTH = 5
 # Specify a login url and a url to redirect back to after logging in
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/success'
 
 
 WSGI_APPLICATION = 'ci_ms4.wsgi.application'
