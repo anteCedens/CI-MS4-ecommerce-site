@@ -88,21 +88,21 @@ We'll need to temporarily log those emails to the console
 so we can get the confirmation links.
 To do that we can set the EMAIL_BACKEND setting:
 """
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 """
 The 'account authentication method' is what tells allauth that we want to allow
 authentication using either usernames OR email.
 Other setting below it are fairly self-explanatory
 """
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True  # Just in case of typos
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True  # Just in case of typos
 ACCOUNT_USERNAME_MIN_LENGTH = 5
 # Specify a login url and a url to redirect back to after logging in
-LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
 
 
 WSGI_APPLICATION = 'ci_ms4.wsgi.application'
