@@ -1,29 +1,51 @@
+{% load static %}
+
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
+
+    {% block meta %}
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation Starter Template</title>
-    <!-- Compressed CSS -->
+    {% endblock %}
+
+    {% block extra_meta %}
+    {% endblock %}
+
+    {% block corecss %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
         integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/foundation.css" />
-</head>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    {% endblock %}
 
-<body>
-    <h1>Hello, world!</h1>
+    {% block extra_css %}
+    {% endblock %}
 
+    {% block corejs %}
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/what-input@5.2.10/dist/what-input.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
         integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-    <script>
+    {% endblock %}
+
+    {% block extra_js %}
+    {% endblock %}
+
+    <title>Foundation Starter Template {% block extra_title %}{% endblock %}</title>
+</head>
+
+<body>
+    <h1>Hello, world!</h1>
+
+{% block postloadjs %}
+    <script type="text/javascript">
         $(document).foundation();
     </script>
+{% endblock %}
 
 </body>
 
