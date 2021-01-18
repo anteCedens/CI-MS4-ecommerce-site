@@ -9,7 +9,6 @@
       "price": 53.99,
       "category": 2,
       "rating": 4.7,
-      "image_url": "#",
       "image": "411t-fJndqL.jpg"
     }
   },
@@ -23,7 +22,6 @@
       "price": 58.99,
       "category": 1,
       "rating": 4.6,
-      "image_url": "#",
       "image": "412tf1z1G0L._SX348_BO1,204,203,200_.jpg"
     }
   },
@@ -37,7 +35,6 @@
       "price": 205.99,
       "category": 2,
       "rating": 4.7,
-      "image_url": "#",
       "image": "413gQh90ZgL._SX322_BO1,204,203,200_.jpg"
     }
   },
@@ -51,7 +48,6 @@
       "price": 169.99,
       "category": 1,
       "rating": 4.7,
-      "image_url": "#",
       "image": "4165f3eGJgL._SX331_BO1,204,203,200_.jpg"
     }
   },
@@ -65,7 +61,6 @@
       "price": 232.99,
       "category": 2,
       "rating": 4.8,
-      "image_url": "#",
       "image": "418tRgl8MhL._SX304_BO1,204,203,200_.jpg"
     }
   }
