@@ -17,6 +17,10 @@ class Category(models.Model):
 class Product(models.Model):
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
+    """
+    Each product will require a name, author, and price,
+    but everything else is set as optional
+    """
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     author = models.TextField()
