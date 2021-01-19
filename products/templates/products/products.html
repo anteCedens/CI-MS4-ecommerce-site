@@ -6,7 +6,30 @@
 <body>
     <div class="container">
         <div class="notification is-primary">
-            {{ products }}
+            {% for product in products %}
+            <div class="card">
+                <div class="card-content">
+                    <p class="title">
+                        “{{ product.name }}”
+                    </p>
+                    <p class="subtitle">
+                        {{ product.author }}
+                    </p>
+                </div>
+                <footer class="card-footer">
+                    <p class="card-footer-item">
+                        <span>
+                            View on <a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+                        </span>
+                    </p>
+                    <p class="card-footer-item">
+                        <span>
+                            Share on <a href="#">Facebook</a>
+                        </span>
+                    </p>
+                </footer>
+            </div>
+            {% endfor %}
         </div>
     </div>
 
