@@ -5,6 +5,10 @@ from django.db import models
 
 class Category(models.Model):
 
+    """
+    Use the 'Meta' class to change the Django
+    inherent (mis)spelling of 'Categorys'
+    """
     class Meta:
         verbose_name_plural = 'Categories'
     name = models.CharField(max_length=254)

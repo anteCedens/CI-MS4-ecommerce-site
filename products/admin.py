@@ -5,6 +5,11 @@ from .models import Product, Category
 
 
 class ProductAdmin(admin.ModelAdmin):
+    """
+    Adjust the order here if we wish to
+    change the order of the columns in the
+    Django admin panel
+    """
     list_display = (
         'sku',
         'name',
@@ -15,6 +20,10 @@ class ProductAdmin(admin.ModelAdmin):
         'image',
     )
 
+    """
+    Place a minus in front of 'sku'
+    to reverse the sorting order
+    """
     ordering = ('sku',)
 
 
