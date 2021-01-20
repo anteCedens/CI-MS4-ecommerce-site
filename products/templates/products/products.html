@@ -12,7 +12,9 @@
                     <p class="title">
                         “{{ product.name }}”
                     </p>
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    </a>
                     <p class="subtitle">
                         {{ product.author }}
                     </p>
@@ -25,7 +27,7 @@
                     </p>
                     <p class="card-footer-item">
                         <span>
-                           ★ {{ product.rating }}
+                            ★ {{ product.rating }}
                         </span>
                     </p>
                 </footer>
