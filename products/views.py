@@ -11,21 +11,32 @@ def all_products(request):
     # A view to show all products, including sorting and search queries
 
     products = Product.objects.all()
+    # Set these intially to 'None', so as not cause errors
     query = None
     sort = None
     direction = None
 
     if request.GET:
         if 'sort' in request.GET:
+            """
+            The reason for copying the sort parameter into a new variable
+            called sortkey is to preserve the original field we want it to
+            sort on (i.e. 'name').
+            If we had just renamed 'sort' itself to 'lower_name', we would
+            have lost the original field 'name'.
+            """
             sortkey = request.GET['sort']
             sort = sortkey
             if sortkey == 'name':
                 sortkey = 'lower_name'
+                # Annotation allows us to add a temporary field on a model
+                # Our goal with 'Lower' is to make the sorting case-insensitive
                 products = products.annotate(lower_name=Lower('name'))
 
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
+                    # Adding a minus reverses the sorting order
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
 
