@@ -26,9 +26,15 @@
                         </span>
                     </p>
                     <p class="card-footer-item">
+                        {% if product.rating %}
                         <span>
-                            ★ {{ product.rating }}
+                            <i class="fas fa-star"></i> {{ product.rating }}
                         </span>
+                        {% else %}
+                        <span>
+                            <i class="fas fa-star"></i> No Rating
+                        </span>
+                        {% endif %}
                     </p>
                 </footer>
             </div>
