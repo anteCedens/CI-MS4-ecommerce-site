@@ -33,6 +33,7 @@ def all_products(request):
                 # Annotation allows us to add a temporary field on a model
                 # Our goal with 'Lower' is to make the sorting case-insensitive
                 products = products.annotate(lower_name=Lower('name'))
+            # This makes so categories are sorted by their name instead of id
             if sortkey == 'category':
                 sortkey = 'category__name'
             if 'direction' in request.GET:
