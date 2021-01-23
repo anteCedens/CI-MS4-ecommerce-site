@@ -4,6 +4,14 @@
 {% block content %}
 
 <body>
+    <h1>Products</h1>
+    {% for c in current_categories %}
+    <span>
+        <a href="{% url 'products' %}?category={{ c.name }}">
+            <span>{{ c.friendly_name }}</span>
+        </a>
+    </span>
+    {% endfor %}
     <div class="select">
         <select>
             <option>Select dropdown</option>
