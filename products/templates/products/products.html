@@ -46,6 +46,8 @@
                     <p class="card-footer-item">
                         {% if product.category %}
                         <span>
+                            <!--The 'user friendly name' is displayed on the page,
+                            and the 'programmatic name' functions as the href-->
                             <a href="{% url 'products' %}?category={{ product.category.name }}">
                                 <i class="fas fa-folder-open"></i> {{ product.category.friendly_name }}
                             </a>
