@@ -67,6 +67,7 @@ def all_products(request):
             queries = Q(name__icontains=query) | Q(author__icontains=query)
             products = products.filter(queries)
 
+    # If no sorting is selected, 'current_sorting' value will be 'None_None'
     current_sorting = f'{sort}_{direction}'
 
     context = {
