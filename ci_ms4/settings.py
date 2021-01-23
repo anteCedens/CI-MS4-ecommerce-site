@@ -71,9 +71,13 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
+                # `allauth` needs this from django
+                # https://django-allauth.readthedocs.io/en/latest/installation.html
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # required in order to use {{ MEDIA_URL }} in our templates
+                # https://docs.djangoproject.com/en/3.1/ref/settings/
                 'django.template.context_processors.media',
             ],
         },
