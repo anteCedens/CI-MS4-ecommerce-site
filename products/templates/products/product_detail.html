@@ -6,13 +6,22 @@
 <body>
     <div class="container">
         <div class="notification is-primary">
-            
+
             <div class="card">
                 <div class="card-content">
                     <p class="title">
                         “{{ product.name }}”
                     </p>
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    {% if product.image %}
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    </a>
+                    {% else %}
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img src="{{ MEDIA_URL }}no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg"
+                            alt="{{ product.name }}">
+                    </a>
+                    {% endif %}
                     <p class="subtitle">
                         {{ product.author }}
                     </p>
@@ -36,7 +45,7 @@
                     </p>
                 </footer>
             </div>
-            
+
         </div>
     </div>
 
