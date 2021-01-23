@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 # 'Q' is used to generate a search query (mainly the 'OR' logic bit)
 from django.db.models import Q
-from .models import Product
+from .models import Product, Category
 
 # Create your views here.
 
@@ -15,6 +15,7 @@ def all_products(request):
     query = None
     sort = None
     direction = None
+    categories = None
 
     if request.GET:
         if 'sort' in request.GET:
@@ -32,13 +33,19 @@ def all_products(request):
                 # Annotation allows us to add a temporary field on a model
                 # Our goal with 'Lower' is to make the sorting case-insensitive
                 products = products.annotate(lower_name=Lower('name'))
-
+            if sortkey == 'category':
+                sortkey = 'category__name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
                     # Adding a minus reverses the sorting order
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
+
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
 
         """
         'q' is the value of the 'name' attribute
@@ -65,6 +72,7 @@ def all_products(request):
         'products': products,
         'search_term': query,
         'current_sorting': current_sorting,
+        'current_categories': categories,
     }
 
     return render(request, 'products/products.html', context)
