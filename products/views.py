@@ -3,6 +3,7 @@ from django.contrib import messages
 # 'Q' is used to generate a search query (mainly the 'OR' logic bit)
 from django.db.models import Q
 from .models import Product, Category
+from django.db.models.functions import Lower
 
 # Create your views here.
 
