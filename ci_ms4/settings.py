@@ -80,6 +80,8 @@ TEMPLATES = [
                 # required in order to use {{ MEDIA_URL }} in our templates
                 # https://docs.djangoproject.com/en/3.1/ref/settings/
                 'django.template.context_processors.media',
+                # this context processor is created by us in bag/contexts.py
+                'bag.contexts.bag_contents',
             ],
         },
     },
