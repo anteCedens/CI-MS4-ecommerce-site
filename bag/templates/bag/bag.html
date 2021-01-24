@@ -12,6 +12,9 @@
 <div>
         {% if bag_items %}
         <table class="table">
+        <span>
+            {{ bag_items }}
+        </span>
         {% else %}
         <p>Your bag is empty.</p>
         <a href="{% url 'products' %}">
