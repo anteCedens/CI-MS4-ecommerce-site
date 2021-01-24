@@ -1,3 +1,7 @@
+from decimal import Decimal
+from django.conf import settings
+
+
 """
 This function will return a dictionary (instead of a template, for instance)
 called 'context'.
@@ -7,7 +11,13 @@ across the entire app.
 In order for this to work, we need to add it to the list of
 context processors in settings.py
 """
+
+
 def bag_contents(request):
+
+    bag_items = []
+    total = 0
+    product_count = 0
     
     context = {
         
