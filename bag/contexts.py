@@ -1,4 +1,10 @@
 from decimal import Decimal
+"""
+The decimal function is used here for financial
+transactions - as using float is susceptible to rounding errors.
+So just in general using decimal is preferred when working with money
+because it's more accurate.
+"""
 from django.conf import settings
 
 
@@ -11,8 +17,6 @@ across the entire app.
 In order for this to work, we need to add it to the list of
 context processors in settings.py
 """
-
-
 def bag_contents(request):
 
     bag_items = []
