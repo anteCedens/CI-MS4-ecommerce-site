@@ -25,6 +25,10 @@ def bag_contents(request):
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
+        """
+        'free_delivery_delta' is there to let the users know
+        how far from getting a free delivery are they
+        """
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
     else:
         delivery = 0
