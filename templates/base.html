@@ -150,6 +150,16 @@
                                 <span class="icon">
                                     <i class="fas fa-shopping-bag fa-lg"></i>
                                 </span>
+                                <span>
+                                    <p>
+                                        {% if grand_total %}
+                                        €{{ grand_total|floatformat:2 }}
+                                        {% else %}
+                                        €0.00
+                                        {% endif %}
+                                    </p>
+                                </span>
+
                                 <span>View Bag</span>
                             </a>
                         </span>
@@ -157,11 +167,11 @@
                 </div>
             </div>
         </nav>
-        
-            <div>
-                <h1>Free delivery on orders over €{{ free_delivery_threshold }}!</h1>
-            </div>
-        
+
+        <div>
+            <h1>Free delivery on orders over €{{ free_delivery_threshold }}!</h1>
+        </div>
+
 
         {% block page_header %}
         {% endblock %}
