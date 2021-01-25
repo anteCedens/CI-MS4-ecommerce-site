@@ -10,21 +10,35 @@
 <hr>
 
 <div>
-        {% if bag_items %}
-        <table class="table">
-        <span>
-            {{ bag_items }}
+    {% if bag_items %}
+    <table class="table">
+        <thead>
+
+        </thead>
+        <tfoot>
+
+        </tfoot>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <span>
+        {{ bag_items }}
+    </span>
+    {% else %}
+    <p>Your bag is empty.</p>
+    <a href="{% url 'products' %}">
+        <span class="icon">
+            <i class="fas fa-chevron-left"></i>
         </span>
-        {% else %}
-        <p>Your bag is empty.</p>
-        <a href="{% url 'products' %}">
-            <span class="icon">
-                <i class="fas fa-chevron-left"></i>
-            </span>
-            <span>Keep Shopping</span>
-        </a>
-        {% endif %}
-    
+        <span>Keep Shopping</span>
+    </a>
+    {% endif %}
+
 
 </div>
 
