@@ -43,7 +43,12 @@
                     <p>€{{ item.product.price }}</p>
                 </td>
                 <td>
-                    <p>{{ item.quantity }}</p>
+
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        
+                    </form>
+
                 </td>
                 <td>
                     <p>€{{ item.product.price }}</p>
