@@ -4,6 +4,8 @@ from django.db import models
 
 
 class Order(models.Model):
+    """ editable=False is set here, because we want to automatically generate
+    an order number, as want it to be unique and permanent, and not editable. """
     order_number = models.CharField(max_length=32, null=False, editable=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
@@ -14,7 +16,11 @@ class Order(models.Model):
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
+    """ auto_now_add attribute on the date field will automatically set
+    the order date and time whenever a new order is created. """
     date = models.DateTimeField(auto_now_add=True)
+    """ These last three fields will be calculated using a model method
+    whenever an order is saved. """
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
