@@ -44,7 +44,7 @@
                 </td>
                 <td>
 
-                    <form method="POST" action="">
+                    <form method="POST" action="{% url 'adjust_bag' item.item_id %}">
                         {% csrf_token %}
                         <div class="is-grouped">
 
