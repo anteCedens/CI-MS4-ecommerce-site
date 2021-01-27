@@ -33,6 +33,16 @@ class Order(models.Model):
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
 
 
+def _generate_order_number(self):
+    # Generates a random, unique order number (a string
+    # of 32 characters) using UUID.
+    """
+    The prepended underscore is a convention to indicate
+    this is a private method which will only be used inside this class.
+    """
+    return uuid.uuid4().hex.upper()
+
+
 class OrderLineItem(models.Model):
 
     """ A line-item will be like an individual shopping bag item,
