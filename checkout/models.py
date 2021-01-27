@@ -33,7 +33,12 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+
+    """ A line-item will be like an individual shopping bag item,
+    relating to a specific order and referencing the product itself. """
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
+    """ lineitem_total is not editable, as it'll be automatically
+    calculated when the line item is saved. """
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
