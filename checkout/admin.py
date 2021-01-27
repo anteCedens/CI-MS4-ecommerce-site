@@ -4,7 +4,18 @@ from .models import Order, OrderLineItem
 # Register your models here.
 
 
+class OrderLineItemAdminInline(admin.TabularInline):
+    """
+    OrderLineItemAdminInline will make it so that when we look at an order
+    we'll see a list of editable line items on the same page,
+    instead than having to go to the order-line-item interface.
+    """
+    model = OrderLineItem
+    readonly_fields = ('lineitem_total',)
+
+
 class OrderAdmin(admin.ModelAdmin):
+    inlines = (OrderLineItemAdminInline,)
     readonly_fields = ('order_number', 'date',
                        'delivery_cost', 'order_total',
                        'grand_total',)
