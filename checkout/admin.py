@@ -43,3 +43,6 @@ class OrderAdmin(admin.ModelAdmin):
 
     # Set a reverse chronological order: the most recent orders put at the top.
     ordering = ('-date',)
+
+
+admin.site.register(Order, OrderAdmin)
