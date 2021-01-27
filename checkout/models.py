@@ -1,3 +1,4 @@
+# uuid will be used to generate the order number
 import uuid
 
 from django.db import models
