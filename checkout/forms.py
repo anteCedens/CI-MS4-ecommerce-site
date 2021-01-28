@@ -5,6 +5,12 @@ from .models import Order
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
+        """
+        Here we're not rendering any fields in the form which
+        will be automatically calculated - as those are not
+        meant (designed) to be filled out to begin with - that'll
+        all rather be done via the model methods we've created.
+        """
         fields = ('full_name', 'email', 'phone_number',
                   'street_address1', 'street_address2',
                   'town_or_city', 'postcode', 'country',
@@ -12,8 +18,9 @@ class OrderForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Add placeholders and classes, remove auto-generated
-        labels and set autofocus on first field
+        Add placeholders and classes, mark required fields with
+        a star, remove auto-generated labels and set autofocus
+        on first field.
         """
         super().__init__(*args, **kwargs)
         placeholders = {
