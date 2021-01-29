@@ -33,5 +33,22 @@
     <p><strong>{{ item.product.name }}</strong></p>
     <p>Qty: {{ item.quantity }}</p>
 </tr>
-{% endfor %}
-{% endblock %}
+<hr>
+<div>
+    <div>
+        <p>Order Total:</p>
+        <p>Delivery:</p>
+        <p>Grand Total:</p>
+    </div>
+    <div>
+        <p>€{{ total | floatformat:2 }}</p>
+        <p>€{{ delivery | floatformat:2 }}</p>
+        <p><strong>€{{ grand_total | floatformat:2 }}</strong></p>
+    </div>
+</div>
+
+<div>
+    <p>Please fill out the form below to complete your order</p>
+</div>
+    {% endfor %}
+    {% endblock %}
