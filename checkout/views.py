@@ -11,6 +11,11 @@ def checkout(request):
         messages.error(request, "There's nothing in your bag at the moment")
         return redirect(reverse('products'))
 
+    current_bag = bag_contents(request)
+    total = current_bag['grand_total']
+    """ Multiply by a hundred and round it to zero decimal places,
+    since stripe will require the amount to charge as an integer. """
+    stripe_total = round(total * 100)
     order_form = OrderForm()
     template = 'checkout/checkout.html'
     context = {
