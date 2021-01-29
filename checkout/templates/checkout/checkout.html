@@ -9,4 +9,29 @@
 {% endblock %}
 
 {% block content %}
+<div>
+    <h1>Checkout</h1>
+</div>
+<div>
+    <p>Order Summary ({{ product_count }})</p>
+</div>
+<div>
+    <p>Subtotal</p>
+</div>
+{% for item in bag_items %}
+<tr>
+    <a href="{% url 'product_detail' item.product.id %}">
+        {% if item.product.image %}
+        <img src="{{ item.product.image.url }}" alt="{{ product.name }}">
+        {% else %}
+        <img src="{{ MEDIA_URL }}no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg"
+            alt="{{ product.name }}">
+        {% endif %}
+    </a>
+</tr>
+<tr>
+    <p><strong>{{ item.product.name }}</strong></p>
+    <p>Qty: {{ item.quantity }}</p>
+</tr>
+{% endfor %}
 {% endblock %}
