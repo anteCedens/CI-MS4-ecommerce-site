@@ -88,6 +88,16 @@ TEMPLATES = [
                 # this context processor is created by us in bag/contexts.py
                 'bag.contexts.bag_contents',
             ],
+            """
+            The 'builtins' list contains all the tags we want available in
+            all our templates by default from the crispy_forms pool - instead
+            of just loading the template tags like we load static in all our
+            templates.
+            """
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
