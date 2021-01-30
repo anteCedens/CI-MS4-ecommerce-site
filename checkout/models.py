@@ -12,9 +12,12 @@ from profiles.models import UserProfile
 
 
 class Order(models.Model):
-    """ editable=False is set here, because we want to automatically generate
-    an order number, as want it to be unique and permanent, and not editable. """
+    """ editable=False is set here, because we want to automatically
+    generate an order number, as want it to be unique and permanent,
+    and not editable. """
     order_number = models.CharField(max_length=32, null=False, editable=False)
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+                                     null=True, blank=True, related_name='orders')
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
