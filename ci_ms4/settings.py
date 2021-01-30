@@ -197,7 +197,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # These two variables are used to calculate delivery costs
 FREE_DELIVERY_THRESHOLD = 25
-STANDARD_DELIVERY_PERCENTAGE = 10
+STANDARD_DELIVERY_PERCENTAGE = 25
 # Stripe
 STRIPE_CURRENCY = 'eur'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
