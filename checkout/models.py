@@ -16,6 +16,10 @@ class Order(models.Model):
     generate an order number, as want it to be unique and permanent,
     and not editable. """
     order_number = models.CharField(max_length=32, null=False, editable=False)
+    # models.SET_NULL setting for if the profile is deleted allows to keep
+    # an order history in the admin even if the user is deleted.
+    # Allowing for either null or blank will enable users who don't have an
+    # account to still make purchases.
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=True, related_name='orders')
     full_name = models.CharField(max_length=50, null=False, blank=False)
