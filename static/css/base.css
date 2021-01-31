@@ -38,7 +38,3 @@ as the text requires and no more. */
 .navbar-brand a {
     width: fit-content;
 }
-
-.navbar-brand img {
-    height: 3em;
-}
