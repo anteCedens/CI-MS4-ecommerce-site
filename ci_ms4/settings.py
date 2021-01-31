@@ -141,12 +141,17 @@ WSGI_APPLICATION = 'ci_ms4.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'default': dj_database_url.parse('postgres://iaiirzqxfbqzeq:0b31411fc5a1b99f37befb3a4a9c647e7052437a0443dbbb79cd234ec9c6d3a0@ec2-54-76-215-139.eu-west-1.compute.amazonaws.com:5432/d1gab8olsj4qji')
     }
-}
 
 
 # Password validation
