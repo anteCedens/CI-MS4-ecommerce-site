@@ -86,3 +86,20 @@ so that they match the theme of the browse-books-button on the homepage. */
     color: white;
 }
 /* END_1 */
+
+.text-black {
+    color: #000 !important;
+}
+
+
+/* START_2:
+These are marked !important in lieu of a Bootstrap black class */
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+.bg-black {
+    background: #000 !important;
+}
+/* END_1 */
