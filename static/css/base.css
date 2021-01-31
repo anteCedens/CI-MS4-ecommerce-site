@@ -22,8 +22,9 @@ body {
     font-family: 'Dekko', 'Courier New', Courier, monospace;
 }
 
-header {
-    font-family: 'Caveat Brush', Arial, Helvetica, sans-serif;
+header, 
+#delivery-banner {
+    font-family: 'Miltonian Tattoo', Arial, Helvetica, sans-serif;
 }
 
 /* Start: Development styling */
