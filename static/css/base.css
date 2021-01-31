@@ -27,8 +27,14 @@ header,
     font-family: 'Miltonian Tattoo', Arial, Helvetica, sans-serif;
 }
 
-/* Start: Development styling */
-
-
-
-/* End: Development styling */
+/* From Bulma:
+this icon class will ensure that whenever we use Font Awesome icons
+they will always stay perfectly centred and have a consistent size, 
+unless we manually change it. */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
