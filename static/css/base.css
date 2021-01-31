@@ -34,6 +34,12 @@ html, body {
 
 /* End: Development styling */
 
+/*
 .navbar span {
     color: white;
+}
+*/
+
+div[class="navbar-end"] *:hover {
+    background-color: black;
 }
