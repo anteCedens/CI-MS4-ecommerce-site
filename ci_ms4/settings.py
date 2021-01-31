@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     'products',
     'bag',
     'checkout',
+    'profiles',
     # Other:
     'crispy_forms',
 ]
@@ -150,7 +152,6 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-}
 
 
 # Password validation
@@ -203,7 +204,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # These two variables are used to calculate delivery costs
 FREE_DELIVERY_THRESHOLD = 25
-STANDARD_DELIVERY_PERCENTAGE = 10
+STANDARD_DELIVERY_PERCENTAGE = 25
 # Stripe
 STRIPE_CURRENCY = 'eur'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')

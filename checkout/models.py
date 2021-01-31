@@ -5,19 +5,27 @@ from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 
-from products.models import Product
+from django_countries.fields import CountryField
 
-# Create your models here.
+from products.models import Product
+from profiles.models import UserProfile
 
 
 class Order(models.Model):
-    """ editable=False is set here, because we want to automatically generate
-    an order number, as want it to be unique and permanent, and not editable. """
+    """ editable=False is set here, because we want to automatically
+    generate an order number, as want it to be unique and permanent,
+    and not editable. """
     order_number = models.CharField(max_length=32, null=False, editable=False)
+    # models.SET_NULL setting for if the profile is deleted allows to keep
+    # an order history in the admin even if the user is deleted.
+    # Allowing for either null or blank will enable users who don't have an
+    # account to still make purchases.
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+                                     null=True, blank=True, related_name='orders')
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    country = models.CharField(max_length=40, null=False, blank=False)
+    country = CountryField(blank_label='Country *', null=False, blank=False)
     postcode = models.CharField(max_length=20, null=True, blank=True)
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
@@ -46,7 +54,7 @@ class Order(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
             self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
         else:
