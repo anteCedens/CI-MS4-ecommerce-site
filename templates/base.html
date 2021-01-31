@@ -73,16 +73,30 @@
                     <div id="navbarMenu" class="navbar-menu">
                         <div class="navbar-end">
                             <span class="navbar-item">
-                                <a class="button is-white is-outlined" href="#">
-                                    <span class="icon">
-                                        <i class="fas fa-user fa-lg"></i>
-                                    </span>
-                                    <span>Log In</span>
-                                </a>
+                                <div class="dropdown is-hoverable">
+                                    <div class="dropdown-trigger">
+                                        <button class="button is-white is-outlined" aria-haspopup="true" aria-controls="dropdown-menu4">
+                                            <span class="icon">
+                                                <i class="fas fa-user fa-lg"></i>
+                                            </span>
+                                            <span>Log In</span>
+                                            <span class="icon is-small">
+                                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                                        <div class="dropdown-content">
+                                            <div class="dropdown-item">
+                                                <p>You can insert <strong>any type of content</strong> within the
+                                                    dropdown menu.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </span>
                             <span class="navbar-item">
-                                <a class="button is-white is-outlined"
-                                    href="{% url 'view_bag' %}">
+                                <a class="button is-white is-outlined" href="{% url 'view_bag' %}">
                                     <span class="icon">
                                         <i class="fas fa-shopping-bag fa-lg"></i>
                                     </span>
