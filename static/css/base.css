@@ -38,3 +38,7 @@ unless we manually change it. */
     height: 1.5rem;
     width: 1.5rem;
 }
+
+img[alt="Logo"] {
+    height: 1em;
+}
