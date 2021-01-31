@@ -103,3 +103,15 @@ These are marked !important in lieu of a Bootstrap black class */
     background: #000 !important;
 }
 /* END_1 */
+
+
+/* full-page overlay in order to cover up the body's background image */
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;             /* Fixed at the */
+	left: 0;            /* top left of */
+	position: fixed;    /* the screen. */
+	background: white;
+	z-index: -1; /* z-index of negative 1 to make sure that it sits behind all the content */
+}
