@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dekko&display=swap');
 
-html,body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+html, body {
+  font-family: 'Dekko', 'Courier New', Courier, monospace;
 }
+
+.navbar {
+    font-family: 'Caveat Brush', Arial, Helvetica, sans-serif;
+}
+
 .hero.is-info {
   background: linear-gradient(
       rgba(0, 0, 0, 0.5),
