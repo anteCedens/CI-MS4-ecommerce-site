@@ -29,14 +29,6 @@ html, body {
   line-height: 1.5;
 }
 
-/* Start: Development styling */
-
-nav {
-    background-color: blueviolet!important;
-}
-
-/* End: Development styling */
-
 .navbar span {
     color: black;
 }
