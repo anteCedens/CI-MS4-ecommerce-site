@@ -20,23 +20,9 @@ html, body {
   -o-background-size: cover;
   background-size: cover;
 }
-.hero .nav, .hero.is-success .nav {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-.hero .subtitle {
-  padding: 3rem 0;
-  line-height: 1.5;
-}
 
 /* Start: Development styling */
 
-nav {
-    background-color: blueviolet!important;
-}
+
 
 /* End: Development styling */
-
-.navbar span {
-    color: black;
-}
