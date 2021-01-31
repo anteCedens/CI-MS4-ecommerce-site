@@ -23,11 +23,12 @@
                                     <input class="input" type="text" placeholder="Enter your email">
                                 </p>
                                 -->
-                            <p class="control">
-                                <a href="{% url 'products' %}" class="button is-info">
-                                    View Products
-                                </a>
-                            </p>
+                            <div class="my-5">
+                                <h4>
+                                    <a href="{% url 'products' %}"
+                                        class="browse-books-button btn btn-large rounded-0 text-uppercase py-3">Browse the books!</a>
+                                </h4>
+                            </div>
                             <div class="dropdown is-hoverable">
                                 <div class="dropdown-trigger">
                                     <button class="button is-info" aria-haspopup="true" aria-controls="dropdown-menu">
@@ -45,7 +46,8 @@
                                         <a href="{% url 'products' %}" class="dropdown-item">
                                             All Products
                                         </a>
-                                        <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item">
+                                        <a href="{% url 'products' %}?sort=category&direction=asc"
+                                            class="dropdown-item">
                                             By Category
                                         </a>
                                         <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item">

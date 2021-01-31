@@ -48,3 +48,41 @@ as the text requires and no more. */
 .main-logo-link {
     width: fit-content;
 }
+
+/* START_1:
+These next several lines are styling for the buttons throughout the site,
+so that they match the theme of the browse-books-button on the homepage. */
+.browse-books-button {
+    background: black;
+    color: white;
+    min-width: 260px;
+}
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.btn-outline-black {
+    background: white;
+    color: black !important; /* use important to override link colors for <a> elements */
+    border: 1px solid black;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: black;
+    color: white !important;
+}
+
+.browse-books-button:hover,
+.browse-books-button:active,
+.browse-books-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+/* END_1 */
