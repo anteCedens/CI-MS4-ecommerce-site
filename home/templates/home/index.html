@@ -3,8 +3,6 @@
 
 {% block content %}
 
-<body>
-    <section class="hero is-info is-fullheight">
 
         <div class="hero-body">
             <div class="container has-text-centered">
@@ -15,47 +13,35 @@
                     <h2 class="subtitle">
                         Welcome To Our Online Bookstore!
                     </h2>
-                    <div class="box">
-                        <div class="field is-grouped">
-                            <div class="dropdown is-hoverable">
-                                <div class="dropdown-trigger">
-                                    <button class="button is-info" aria-haspopup="true" aria-controls="dropdown-menu">
-                                        <span class="icon">
-                                            <i class="fas fa-list-ol"></i>
-                                        </span>
-                                        <span>Browse The Books!</span>
-                                        <span class="icon is-small">
-                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                        </span>
-                                    </button>
-                                </div>
-                                <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                                    <div class="dropdown-content">
-                                        <a href="{% url 'products' %}" class="dropdown-item">
-                                            All Products
-                                        </a>
-                                        <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item">
-                                            By Category
-                                        </a>
-                                        <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item">
-                                            By Rating
-                                        </a>
-                                        <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">
-                                            By Price
-                                        </a>
-                                        <a href="{% url 'products' %}?sort=author&direction=desc" class="dropdown-item">
-                                            By Author
-                                        </a>
-                                    </div>
+
+
+                    <div class="dropdown is-up is-hoverable">
+                        <div class="dropdown-trigger">
+                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu7">
+                                <span class="icon">
+                                    <i class="fa fa-book"></i>
+                                </span>
+                                <span>Browse The Books!</span>
+                                <span class="icon is-small">
+                                    <i class="fas fa-angle-up" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu7" role="menu">
+                            <div class="dropdown-content">
+                                <div class="dropdown-item">
+                                    <p>You can add the <code>is-up</code> modifier to have a dropdown menu that appears
+                                        above the dropdown button.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
     </section>
 
-</body>
+
 
 {% endblock %}
