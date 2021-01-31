@@ -42,3 +42,9 @@ unless we manually change it. */
 img[alt="Logo"] {
     height: 1em;
 }
+
+/* Make the logo only takes up as much space 
+as the text requires and no more. */
+.main-logo-link {
+    width: fit-content;
+}
