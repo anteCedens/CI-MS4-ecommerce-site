@@ -2,8 +2,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Dekko&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Miltonian+Tattoo&display=swap');
 
-html, body {
-  font-family: 'Dekko', 'Courier New', Courier, monospace;
+/* Set the HTML element's height to 100% as this
+will allow our h100 classes in vertical centering to work. */
+html {
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ), url('/media/books_vintage_wallpaper.jpg') no-repeat center center fixed;
+    background-size: cover;
+
+    /* Height calculation to the body element:
+    100vh minus 164px - the eventual height of our top header. */
+    height: calc(100vh - 164px);
+    color: #555;
+    font-family: 'Dekko', 'Courier New', Courier, monospace;
 }
 
 header {
