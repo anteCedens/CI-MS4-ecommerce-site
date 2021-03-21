@@ -22,8 +22,8 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey(
-        'Category', null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ManyToManyField(
+        'Category', blank=True, help_text='Select a category for this book')
     """
     Each product will require a name, author, and price,
     but everything else is set as optional
