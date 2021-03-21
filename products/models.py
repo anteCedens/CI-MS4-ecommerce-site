@@ -28,7 +28,7 @@ class Product(models.Model):
     Each product will require a name, author, and price,
     but everything else is set as optional
     """
-    sku = models.CharField(max_length=254, null=True, blank=True)
+    sku = models.CharField('SKU', max_length=254, null=True, blank=True)
     name = models.TextField(max_length=254)
     author = models.CharField(max_length=254)
     price = models.DecimalField(max_digits=6, decimal_places=2)
