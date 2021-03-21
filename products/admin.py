@@ -15,6 +15,7 @@ class ProductAdmin(admin.ModelAdmin):
         'name',
         'author',
         # 'category',
+        'publisher_name',
         'price',
         'rating',
         'image',
@@ -32,6 +33,8 @@ class CategoryAdmin(admin.ModelAdmin):
         'friendly_name',
         'name',
     )
+
+    ordering = ('friendly_name',)
 
 
 admin.site.register(Product, ProductAdmin)
