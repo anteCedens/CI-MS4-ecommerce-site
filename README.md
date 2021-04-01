@@ -201,6 +201,8 @@ There is space left on the product_detail page (i.e., when the product's image i
 to the right) because that was space planned for a product description - a short passage about the book taken from Amazon ("language" is to be scrapped
 in the models for instance, and "description" is to be used instead).
 
+Categories are not developed - there is only 2 test categories, and only one of them (always the same one) is assigined to all the products, which is not really pertinent.
+
 #### **_Deployment_**
 
 ##### **_Local Deployment_**
