@@ -1,19 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dekko&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Miltonian+Tattoo&display=swap');
+
 
 html, body {
-  font-family: 'Dekko', 'Courier New', Courier, monospace;
+    height: 100%;
+    min-height: 100%;
+    font-family: 'Dekko', 'Courier New', Courier, monospace;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
 }
 
 .navbar {
     font-family: 'Caveat Brush', Arial, Helvetica, sans-serif;
 }
 
+::placeholder, 
+div[class="dropdown-trigger"] p {
+    font-family: 'Caveat Brush', Arial, Helvetica, sans-serif;
+    font-size: larger;
+}
+
+#sort-selector {
+    font-family: 'Caveat Brush', Arial, Helvetica, sans-serif;
+    color: hsl(0, 0%, 29%);
+}
+
 .hero.is-info {
   background: linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
     ), url('/media/books_vintage_wallpaper.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -33,8 +50,415 @@ html, body {
     font-size: 3em;
 }
 
+/* Tagret the logo image & text element */
+#site-logo:hover {
+    background-color: transparent;
+}
+
+/* Tagret the free-delivery-banner */
+#free-delivery-banner {
+    font-size: 1.5em;
+}
+
 /* Make the logo only takes up as much space 
 as the text requires and no more. */
 .navbar-brand a {
     width: fit-content;
 }
+
+/* Tagret hamburger-menu's bars */
+span[data-target="navbarMenu"] span {
+    height: 0.15em;
+    background-color: #ffffff;
+}
+
+/* START: Target dropup/dropdown menu */
+div[class="dropdown-content"], 
+#log-in-button button {
+    background-color: transparent;
+}
+
+#log-in-button button:hover, 
+a[data-tooltip="View your bag"]:hover {
+    border: 1px solid #ffffff;
+    /* Alternatively set box-shadow to: 0 0 1px 1px #ffffff; */
+    box-shadow: 2px 2px #ffffff;
+}
+
+#search-button, 
+input[placeholder="Search for books!"], 
+input[placeholder="Search for books!"]:hover {
+    border: 1px solid #ffffff;
+}
+
+/* Target the Bag button */
+a[data-tooltip="View your bag"]:hover {
+    background-color: transparent!important;
+    color: #ffffff!important;
+}
+
+#bag {
+    background-color: transparent;
+}
+
+/* Tagret individual products/books as display on the products page,
+as they are displayed as Bulma 'cards' */
+.card {
+    background-color: transparent;
+}
+
+.card .card-content p[class="title"] {
+    color: #ffffff;
+}
+
+.card .subtitle {
+    padding: 0.5em 0;
+}
+
+.card footer[class="card-footer"] {
+    border: none;
+    color: #fff;
+}
+
+footer[class="card-footer"] .card-footer-item {
+    border: none;
+    padding: 0 0.5em;
+}
+
+/* Make all the 'contents' of the #log-in-button the same color */
+#log-in-button * {
+    color: #ffffff;
+}
+
+a[class="dropdown-item"] {
+    color: #ffffff;
+    font-style: italic;
+    font-size: larger;
+}
+
+a[class="dropdown-item"]:hover, 
+.update-link:hover, 
+.remove-item:hover, 
+#back-to-products:hover {
+    font-weight: bold!important;
+    text-shadow: 2px 2px 4px #fff!important;
+    background-color: transparent!important;
+    color: #fff!important;
+}
+/* END: Target dropup/dropdown menu */
+
+#navbarMenu {
+    background-color: transparent;
+}
+
+#myBtn {
+    /* This shade of green is from the Bulma documentation */
+    background-color: hsl(141, 53%, 53%)!important;
+    border-radius: 50%!important;
+}
+
+#myBtn:hover, 
+#search-button {
+    /* To match the default Bulma tooltip color: 'grey-dark' */
+    background-color: hsl(0, 0%, 29%)!important;
+}
+
+/* Change search icon's color */
+#search-button i[class="fas fa-search"] {
+    color: #ffffff;
+}
+
+#quantity-control-form label, 
+div[class="field"] label[class="label"] {
+    color: #fff;
+}
+
+.table-container table {
+    background-color: transparent;
+    color: #fff;
+}
+
+label[for="quantity"], 
+.table thead th {
+    color: #fff;
+}
+
+tbody td {
+    width: 1rem;
+}
+
+a[class="remove-item"], 
+#keep-shopping {
+    margin-right: 1em;
+}
+
+a[class="update-link"], 
+#secure-checkout {
+    margin-left: 1em;
+}
+
+.decrement-qty, 
+.increment-qty {
+    color: #fff;
+    background-color: hsl(0, 0%, 29%);
+}
+
+input[class="input qty_input"] {
+    font-family: 'Caveat Brush', Arial, Helvetica, sans-serif;
+}
+
+#keep-shopping, 
+#secure-checkout {
+    color: #fff;
+    background-color: hsl(0, 0%, 29%);
+    font-weight: bolder;
+}
+
+#keep-shopping:hover, 
+#secure-checkout:hover {
+    /* These colors are to match the Bulma styling
+    for hovering over buttons*/
+    border-color: #b5b5b5;
+    color: #363636;
+}
+
+#bag-product-count-display {
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-left: 1rem;
+}
+
+.tfoot h2 {
+    margin-left: 0.65rem;
+}
+
+#back-to-products, 
+#sort-selector, 
+#products-found {
+    margin-left: 1rem;
+}
+
+#back-to-products {
+    font-weight: bolder;
+}
+
+#grip-lines-vertical {
+    margin-right: -1rem;
+}
+
+.select {
+    margin-bottom: 0.5rem;
+}
+
+.publisher {
+    font-size: 1em;
+}
+
+/* START: w3schools.com back-to-top button
+https://www.w3schools.com/howto/howto_js_scroll_to_top.asp */
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  color: #fff!important;
+  background-color: hsl(0, 0%, 29%)!important;
+  border: solid 1px #fff!important;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+  /* There's a clash with Bulma sytles, so this is to push 
+  the arrow icon up towards the middle of the button */
+  line-height: 1;
+}
+
+#myBtn:hover {
+  border-color: #b5b5b5!important;
+  color: #363636!important;
+}
+/* END: w3schools.com back-to-top button */
+
+.hide {
+  display: none;
+}
+
+#browse-button:hover ~ .dropdown-menu .hide {
+  display: block;
+  position: absolute;
+  top: 35px;
+  left: 60px;
+}
+
+/* START: Heartbeat animation 
+https://www.freecodecamp.org/learn/responsive-web-design/applied-visual-design/make-a-css-heartbeat-using-an-infinite-animation-count */
+
+  .heart {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #8a0303; /*alt.: #ef999f*/
+    height: 50px;
+    width: 50px;
+    transform: rotate(-45deg);
+    animation-name: beat;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+  .heart:after {
+    background-color: #8a0303; /*alt.: #ef999f*/
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0px;
+    left: 25px;
+  }
+  .heart:before {
+    background-color: #8a0303; /*alt.: #ef999f*/
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 0px;
+  }
+
+  @keyframes beat {
+    0% {
+      transform: scale(1) rotate(-45deg);
+    }
+    50% {
+      transform: scale(0.6) rotate(-45deg);
+    }
+  }
+
+/* END: Heartbeat animation */
+
+#addtobag, 
+#back-from-details {
+    cursor: pointer;
+    background-color: hsl(0, 0%, 29%);
+    color: #fff;
+    font-family: 'Caveat Brush', Arial, Helvetica, sans-serif;
+}
+
+#back-from-details {
+    margin-right: 0.70rem;
+}
+
+#addtobag:hover, 
+#back-from-details:hover {
+    border-color: #b5b5b5;
+    color: #363636;
+}
+
+/* START: Add-to-Bag animation functionality related styling
+https://codepen.io/designcouch/pen/OJPdZxg */
+.button-wrapper {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button-wrapper button {
+  padding: 20px;
+  border: none;
+  background: #d5d8e7;
+  position: relative;
+  outline: none;
+  border-radius: 5px;
+  color: #292d48;
+  font-size: 18px;
+}
+.button-wrapper button .bag-item {
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  top: -10px;
+  right: -10px;
+}
+.button-wrapper button .bag-item:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f067";
+  display: block;
+  line-height: 24px;
+  height: 24px;
+  width: 24px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: hsl(0, 0%, 29%);
+  color: #fff;
+  border-radius: 20px;
+  text-align: center;
+}
+.button-wrapper button.sendtobag .bag-item {
+  display: block;
+  animation: xAxis 1s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.button-wrapper button.sendtobag .bag-item:before {
+  animation: yAxis 1s alternate forwards cubic-bezier(1, 0.44, 0.84, 0.165);
+}
+.bag {
+  background: #292d48;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+.bag i {
+  font-size: 25px;
+  color: white;
+}
+.bag:before {
+  content: attr(data-totalitems);
+  font-size: 12px;
+  font-weight: 600;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: hsl(0, 0%, 29%);
+  line-height: 24px;
+  padding: 0 5px;
+  height: 24px;
+  min-width: 24px;
+  color: #fff;
+  text-align: center;
+  border-radius: 24px;
+}
+.bag.shake {
+  animation: shakeBag 0.4s ease-in-out forwards;
+}
+@keyframes xAxis {
+  100% {
+    transform: translateX(calc(50vw - 300px));
+  }
+}
+@keyframes yAxis {
+  100% {
+    transform: translateY(calc(-50vh - 300px));
+  }
+}
+@keyframes shakeBag {
+  25% {
+    transform: translateX(6px);
+  }
+  50% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/* END: Add-to-Bag animation functionality related styling */

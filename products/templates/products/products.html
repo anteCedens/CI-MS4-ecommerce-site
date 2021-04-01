@@ -4,7 +4,13 @@
 {% block content %}
 
 <body>
-    <h1>Products</h1>
+    <div class="pageloader is-bottom-to-top"><span class="title">Pageloader</span></div>
+    <button class="button" onclick="topFunction()" id="myBtn" data-tooltip="Back to top">
+        <a>
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </button>
+    <br />
     {% for c in current_categories %}
     <span>
         <a href="{% url 'products' %}?category={{ c.name }}">
@@ -36,16 +42,25 @@
     <div>
         <p>
             {% if search_term or current_categories or current_sorting != 'None_None' %}
-            <span><a href="{% url 'products' %}">Products Home</a> | </span>
+            <span id="back-to-products">
+                <a href="{% url 'products' %}">
+                    <i class="fas fa-chevron-left"></i> Back
+                </a>
+            </span>
+            <span class="icon" id="grip-lines-vertical">
+                <i class="fas fa-grip-lines-vertical"></i>
+            </span>
             {% endif %}
-            {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+            <span id="products-found">
+                {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+            </span>
         </p>
     </div>
 
     <div class="container">
-        <div class="notification is-primary">
+        <div class="columns is-multiline">
             {% for product in products %}
-            <div class="card">
+            <div class="card column m-1 is-one-quarter-widescreen is-one-third-tablet is-centered">
                 <div class="card-content">
                     <p class="title">
                         “{{ product.name }}”
@@ -62,6 +77,9 @@
                     {% endif %}
                     <p class="subtitle">
                         {{ product.author }}
+                    </p>
+                    <p class="subtitle publisher">
+                        <i class="far fa-building"></i> {{ product.publisher }}
                     </p>
                 </div>
                 <footer class="card-footer">
@@ -87,7 +105,7 @@
                             <!--The 'user friendly name' is displayed on the page,
                             and the 'programmatic name' functions as the href-->
                             <a href="{% url 'products' %}?category={{ product.category.name }}">
-                                <i class="fas fa-folder-open"></i> {{ product.category.friendly_name }}
+                                <i class="fas fa-tag"></i> {{ product.category.friendly_name }}
                             </a>
                         </span>
                         {% endif %}
@@ -97,25 +115,13 @@
             {% endfor %}
         </div>
     </div>
-
-    <button class="button is-info is-rounded">
-        <a id="back-to-top">
-            <i class="fas fa-arrow-up"></i>
-        </a>
-    </button>
-
 </body>
 
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
-    $('#back-to-top').click(function (e) {
-        window.scrollTo(0, 0)
-    })
-</script>
-
+<!-- Sort selector script -->
 <script type="text/javascript">
     $('#sort-selector').change(function () {
         var selector = $(this);
@@ -137,5 +143,28 @@
             window.location.replace(currentUrl);
         }
     })
+</script>
+
+<!-- Back to Top button script -->
+<script type="text/javascript">
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
 </script>
 {% endblock %}

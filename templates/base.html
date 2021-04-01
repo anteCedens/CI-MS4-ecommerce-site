@@ -9,6 +9,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Add favicon-->
+    <link rel="shortcut icon" href="{{ MEDIA_URL }}icon-clipart2158889.ico" />
     {% endblock %}
 
     {% block extra_meta %}
@@ -18,11 +20,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bulma Version 0.9.0-->
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
-    <!-- Add Bootstrap 4 to make use of bootstrap4 powered crispy-forms-->
-    <!--
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-tooltip@3.0.2/dist/css/bulma-tooltip.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bulma-pageloader@0.3.0/dist/css/bulma-pageloader.min.css" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     {% endblock %}
 
@@ -36,11 +36,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
-    <!--
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-        -->
     <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
     <script async src="{% static 'js/script.js' %}" type="text/javascript"></script>
@@ -49,7 +44,7 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title>Bookie! {% block extra_title %}{% endblock %}</title>
+    <title>Bookie! - an online bookstore {% block extra_title %}{% endblock %}</title>
 </head>
 
 <body>
@@ -58,7 +53,7 @@
             <nav class="navbar">
                 <div class="container">
                     <div class="navbar-brand">
-                        <a class="navbar-item" href="{% url 'home' %}">
+                        <a class="navbar-item" href="{% url 'home' %}" id="site-logo">
                             <img src="{{ MEDIA_URL }}clipart2158889.png" alt="Logo">
                             <p>book.ie</p>
                         </a>
@@ -77,15 +72,40 @@
                                         <div class="control">
                                             <input class="input" type="text" name="q" placeholder="Search for books!">
                                         </div>
+                                        <div class="control">
+                                            <button class="button" type="submit" id="search-button">
+                                                <span class="icon">
+                                                    <i class="fas fa-search"></i>
+                                                </span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </form>
 
                             </span>
 
                             <span class="navbar-item">
+                                <a class="button is-white is-outlined has-tooltip-bottom" href="{% url 'view_bag' %}"
+                                    data-tooltip="View your bag">
+                                    <span class="icon bag" id="bag" data-totalitems="{{ product_count }}">
+                                        <i class="fas fa-shopping-bag fa-lg"></i>
+                                    </span>
+                                    <span>
+                                        <p>
+                                            {% if grand_total %}
+                                            €{{ grand_total|floatformat:2 }}
+                                            {% else %}
+                                            €0.00
+                                            {% endif %}
+                                        </p>
+                                    </span>
+                                </a>
+                            </span>
+
+                            <span class="navbar-item">
 
                                 <div class="dropdown is-hoverable">
-                                    <div class="dropdown-trigger">
+                                    <div class="dropdown-trigger" id="log-in-button">
                                         <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
                                             <span class="icon">
                                                 <i class="fas fa-user fa-lg"></i>
@@ -109,32 +129,15 @@
                                 </div>
 
                             </span>
-                            <span class="navbar-item">
-                                <a class="button is-white is-outlined" href="{% url 'view_bag' %}">
-                                    <span class="icon">
-                                        <i class="fas fa-shopping-bag fa-lg"></i>
-                                    </span>
-                                    <span>
-                                        <p>
-                                            {% if grand_total %}
-                                            €{{ grand_total|floatformat:2 }}
-                                            {% else %}
-                                            €0.00
-                                            {% endif %}
-                                        </p>
-                                    </span>
-
-                                    <span>View Bag</span>
-                                </a>
-                            </span>
                         </div>
                     </div>
                 </div>
             </nav>
-
+            <!--
             <div>
-                <h1>Free delivery on orders over €{{ free_delivery_threshold }}!</h1>
+                <h1 id="free-delivery-banner"><em>Free delivery on orders over €{{ free_delivery_threshold }}</em></h1>
             </div>
+            -->
         </div>
 
         {% block page_header %}

@@ -25,7 +25,11 @@ echo 'alias run="python3 $GITPOD_REPO_ROOT/manage.py runserver 0.0.0.0:8000"' >>
 echo 'alias python=python3' >> ~/.bashrc
 echo 'alias pip=pip3' >> ~/.bashrc
 <<<<<<< HEAD
+<<<<<<< HEAD
 echo "Done"
+=======
+echo "Your workspace is ready to use. Happy coding!"
+>>>>>>> master-holder
 =======
 echo "Your workspace is ready to use. Happy coding!"
 >>>>>>> master-holder

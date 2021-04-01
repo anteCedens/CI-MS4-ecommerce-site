@@ -45,8 +45,6 @@
                 </div>
                 <div class="col-7">
                     <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                    <p class="my-0 small">Size:
-                        {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
                     <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                 </div>
                 <div class="col-3 text-right">
@@ -95,7 +93,7 @@
                         {% else %}
                         <label class="form-check-label" for="id-save-info">
                             <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
-                            <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                            <a class="text-info" href="{% url 'account_login' %}">sign in</a> to save this information
                         </label>
                         {% endif %}
                     </div>
