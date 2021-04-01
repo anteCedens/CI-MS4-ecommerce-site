@@ -218,7 +218,7 @@ After this is installed, download the .ZIP file of the repository, unzip this fi
 
 - in the CLI with GIT installed, enter the following command: 
    
-        git clone https://github.com/anteCedens/CI-MS3-cookbook.git
+        git clone https://github.com/anteCedens/CI-MS4-ecommerce-site
 
 - navigate to the to path using the `cd` command. 
 - create an `env` file with your credentials (values):
